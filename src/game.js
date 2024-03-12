@@ -194,9 +194,9 @@ body.appendChild(board);
 body.appendChild(buttonContainer);
 buttonContainer.appendChild(startButton);
 buttonContainer.appendChild(replayButton);
+touchControls.appendChild(leftButton);
 touchControls.appendChild(upButton);
 touchControls.appendChild(downButton);
-touchControls.appendChild(leftButton);
 touchControls.appendChild(rightButton);
 body.appendChild(touchControls);
 
