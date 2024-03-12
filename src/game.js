@@ -16,6 +16,22 @@ const replayButton = document.createElement('button');
 replayButton.textContent = 'Replay';
 replayButton.classList.add('replay-button');
 
+//touch screen controls for mobile
+const touchControls = document.createElement('div');
+touchControls.classList.add('touch-controls');
+const upButton = document.createElement('button');
+upButton.textContent = 'Up';
+upButton.classList.add('up-button');
+const downButton = document.createElement('button');
+downButton.textContent = 'Down';
+downButton.classList.add('down-button');
+const leftButton = document.createElement('button');
+leftButton.textContent = 'Left';
+leftButton.classList.add('left-button');
+const rightButton = document.createElement('button');
+rightButton.textContent = 'Right';
+rightButton.classList.add('right-button');
+
 // score
 const scoreContainer = document.createElement('div');
 scoreContainer.classList.add('score-container');
@@ -167,6 +183,7 @@ function startGame() {
   levelDisplay.style.display = 'block';
 }
 
+// append elements to the body
 createBoard();
 body.appendChild(h1);
 scoreContainer.appendChild(scoreDisplay);
@@ -177,6 +194,11 @@ body.appendChild(board);
 body.appendChild(buttonContainer);
 buttonContainer.appendChild(startButton);
 buttonContainer.appendChild(replayButton);
+touchControls.appendChild(upButton);
+touchControls.appendChild(downButton);
+touchControls.appendChild(leftButton);
+touchControls.appendChild(rightButton);
+body.appendChild(touchControls);
 
 startButton.addEventListener('click', startGame);
 replayButton.addEventListener('click', startGame);
@@ -199,6 +221,33 @@ document.addEventListener('keydown', (event) => {
       }
       break;
     case 'ArrowRight':
+      if (snake.direction !== 'left') {
+        snake.direction = 'right';
+      }
+      break;
+    default:
+      break;
+  }
+});
+
+document.addEventListener('click', (event) => {
+  switch (event.target) {
+    case upButton:
+      if (snake.direction !== 'down') {
+        snake.direction = 'up';
+      }
+      break;
+    case downButton:
+      if (snake.direction !== 'up') {
+        snake.direction = 'down';
+      }
+      break;
+    case leftButton:
+      if (snake.direction !== 'right') {
+        snake.direction = 'left';
+      }
+      break;
+    case rightButton:
       if (snake.direction !== 'left') {
         snake.direction = 'right';
       }

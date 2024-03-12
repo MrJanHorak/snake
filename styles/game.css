@@ -112,6 +112,35 @@ body {
   font-weight: bolder;
 }
 
+.touch-controls {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px;
+  height: 35px;
+  margin: 10px 0 20px 0;
+  width: 350px;
+}
 
+.touch-controls button {
+  background-color: #4ff76b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+}
 
+.touch-controls button:active {
+  background-color: #10c027;
+}
+
+.touch-controls button:hover {
+  background-color: #08921a;
+}
 .
