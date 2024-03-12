@@ -31,7 +31,7 @@ const gameOverDisplay = document.createElement('p');
 gameOverDisplay.classList.add('game-over-display');
 
 let level = 1;
-let highScore = 0;
+let highScore = localStorage.getItem('highScore') || 0;
 let score = 0;
 let cells;
 
@@ -84,6 +84,7 @@ function createFood() {
 function updateScore() {
   scoreDisplay.textContent = `Score: ${score}`;
   highScoreDisplay.textContent = `High Score: ${highScore}`;
+  localStorage.setItem('highScore', highScore);
 }
 
 function updateLevel() {
