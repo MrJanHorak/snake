@@ -1,5 +1,6 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -8,12 +9,22 @@ body {
   color: white
 }
 
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 350px;
+  border: #10c027 2px solid;
+  margin: 15px;
+  position: relative;
+}
+
 .snake {
-  display: grid;
-  grid-template-columns: repeat(20, 1fr);
   width: 19px;
   height: 19px;
   border: 2px solid #c73c23;
+  background-color: #c73c23;
 }
 
 .food {
@@ -26,13 +37,6 @@ body {
   border: 1px solid #c73c23;
 }
 
-.board {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  width: 400px;
-}
-
 .cells {
   display: flex;
   flex-wrap: wrap;
@@ -40,3 +44,74 @@ body {
   height: 20px;
   border: 1px solid #c73c23;;
 }
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  height: 35px;
+  margin: 10px;
+}
+
+.start-button {
+  background-color: #4ff76b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width:100px
+}
+
+.start-button:hover {
+  background-color: #10c027;
+}
+
+.replay-button {
+  background-color: #c73c23;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.replay-button:hover {
+  background-color: #a32b1a;
+}
+
+.score-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 15px;
+  height: 35px;
+  margin: 10px;
+  width: 350px;
+}
+
+.score-display {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.game-over-display {
+  align-self: center;
+  position: absolute;
+  font-size: 50px;
+  margin: 10px;
+  font-weight: bolder;
+}
+
+
+
+.

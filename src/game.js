@@ -5,6 +5,8 @@ const body = document.querySelector('body');
 const h1 = document.createElement('h1');
 const board = document.createElement('div');
 board.classList.add('board');
+
+//buttons
 const buttonContainer = document.createElement('div');
 buttonContainer.classList.add('button-container');
 const startButton = document.createElement('button');
@@ -13,15 +15,20 @@ startButton.classList.add('start-button');
 const replayButton = document.createElement('button');
 replayButton.textContent = 'Replay';
 replayButton.classList.add('replay-button');
+
+// score
 const scoreContainer = document.createElement('div');
 scoreContainer.classList.add('score-container');
 const scoreDisplay = document.createElement('p');
 scoreDisplay.classList.add('score-display');
 const highScoreDisplay = document.createElement('p');
-highScoreDisplay.classList.add('high-score-display');
+highScoreDisplay.classList.add('score-display');
+const levelDisplay = document.createElement('p');
+levelDisplay.classList.add('score-display');
+
+// game over display
 const gameOverDisplay = document.createElement('p');
 gameOverDisplay.classList.add('game-over-display');
-const levelDisplay = document.createElement('p');
 
 let level = 1;
 let highScore = 0;
@@ -32,7 +39,7 @@ const snake = {
   body: [],
   direction: 'right',
   grow: false,
-  speed: 100,
+  speed: 300,
   interval: null,
 };
 
@@ -50,7 +57,21 @@ function createBoard() {
     cell.classList.add('cell');
     board.appendChild(cell);
   }
+  board.appendChild(gameOverDisplay);
   cells = document.querySelectorAll('.cell');
+}
+
+function renderBoard() {
+  cells.forEach((cell) => {
+    cell.classList.remove('snake');
+    cell.classList.remove('food');
+  });
+
+  snake.body.forEach((segment) => {
+    const index = segment.x * 20 + segment.y;
+    cells[index].classList.add('snake');
+  });
+  cells[food.x * 20 + food.y].classList.add('food');
 }
 
 function createFood() {
@@ -60,19 +81,20 @@ function createFood() {
   cells[randomCell].classList.add('food');
 }
 
-function renderBoard() {
-  console.log('rendering board')
-  console.log(cells)
+function updateScore() {
+  scoreDisplay.textContent = `Score: ${score}`;
+  highScoreDisplay.textContent = `High Score: ${highScore}`;
+}
 
-  cells.forEach((cell) => {
-    cell.classList.remove('snake');
-    cell.classList.remove('food');
-  });
-  snake.body.forEach((segment) => {
-    const index = segment.x * 20 + segment.y;
-    cells[index].classList.add('snake');
-  });
-  cells[food.x * 20 + food.y].classList.add('food');
+function updateLevel() {
+  levelDisplay.textContent = `Level: ${level}`;
+}
+
+function gameOver() {
+  clearInterval(snake.interval);
+  gameOverDisplay.textContent = 'Game Over';
+  startButton.style.display = 'none';
+  replayButton.style.display = 'block';
 }
 
 function moveSnake() {
@@ -105,7 +127,7 @@ function moveSnake() {
       level += 1;
       updateLevel();
       clearInterval(snake.interval);
-      snake.speed -= 10;
+      snake.speed -= 20;
       snake.interval = setInterval(moveSnake, snake.speed);
     }
     createFood();
@@ -130,7 +152,7 @@ function startGame() {
   snake.body = [{ x: 10, y: 10 }];
   snake.direction = 'right';
   snake.grow = false;
-  snake.speed = 100;
+  snake.speed = 300;
   snake.interval = setInterval(moveSnake, snake.speed);
   createBoard();
   createFood();
@@ -146,31 +168,14 @@ function startGame() {
 
 createBoard();
 body.appendChild(h1);
+scoreContainer.appendChild(scoreDisplay);
+scoreContainer.appendChild(highScoreDisplay);
+scoreContainer.appendChild(levelDisplay);
+body.appendChild(scoreContainer);
 body.appendChild(board);
 body.appendChild(buttonContainer);
 buttonContainer.appendChild(startButton);
 buttonContainer.appendChild(replayButton);
-body.appendChild(scoreContainer);
-scoreContainer.appendChild(scoreDisplay);
-scoreContainer.appendChild(highScoreDisplay);
-scoreContainer.appendChild(levelDisplay);
-body.appendChild(gameOverDisplay);
-
-function updateScore() {
-  scoreDisplay.textContent = `Score: ${score}`;
-  highScoreDisplay.textContent = `High Score: ${highScore}`;
-}
-
-function updateLevel() {
-  levelDisplay.textContent = `Level: ${level}`;
-}
-
-function gameOver() {
-  clearInterval(snake.interval);
-  gameOverDisplay.textContent = 'Game Over';
-  startButton.style.display = 'none';
-  replayButton.style.display = 'block';
-}
 
 startButton.addEventListener('click', startGame);
 replayButton.addEventListener('click', startGame);
@@ -200,5 +205,4 @@ document.addEventListener('keydown', (event) => {
     default:
       break;
   }
-})
-
+});
