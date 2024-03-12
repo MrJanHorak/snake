@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #104f18;
+  color: white
+}
+
+.snake {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  width: 19px;
+  height: 19px;
+  border: 2px solid #c73c23;
+}
+
+.food {
+  background-color: #4ff76b;
+}
+
+.cell {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #c73c23;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 400px;
+}
+
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #c73c23;;
+}
