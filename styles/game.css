@@ -20,22 +20,122 @@ body {
   position: relative;
 }
 
-.snake {
-  width: 19px;
-  height: 19px;
-  border: 2px solid #c73c23;
-  background-color: #c73c23;
-}
-
-.food {
-  background-color: #4ff76b;
-}
-
 .cell {
   width: 16px;
   height: 16px;
-  border: 1px solid #c73c23;
+  border: 1px solid #030303;
+  background-image: url(/assets/grid1.PNG);
+  background-size: cover;
 }
+
+.snakeLeft {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod1.PNG);
+  background-size: cover;
+}
+
+.snakeRight {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod1.PNG);
+  background-size: cover;
+}
+
+.snakeUp {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod1.PNG);
+  background-size: cover;
+  transform: rotate(90deg);
+}
+
+.snakeDown {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod1.PNG);
+  background-size: cover;
+  transform: rotate(-90deg);
+}
+
+.snakeCornerRightUp {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod2.PNG);
+  background-size: cover;
+  transform: rotate(90deg);
+} 
+.snakeCornerLeftUp {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod2.PNG);
+  background-size: cover;
+  /* transform: rotate(90deg); */
+} 
+.snakeCornerRightDown {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod2.PNG);
+  background-size: cover;
+} 
+.snakeCornerLeftDown {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeBod2.PNG);
+  background-size: cover;
+  transform: rotate(180deg);
+} 
+
+.snakeHeadLeft {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeHead1.PNG);
+  background-size: cover;
+  transform:scalex(-1)
+}
+.snakeHeadRight {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeHead1.PNG);
+  background-size: cover;
+  /* transform: scalex(-1); */
+}
+.snakeHeadUp {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeHead1.PNG);
+  background-size: cover;
+  transform: rotate(90deg);
+}
+.snakeHeadDown {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/snakeHead1.PNG);
+  background-size: cover;
+  transform: rotate(-90deg);
+}
+
+.food {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #030303;
+  background-image: url(/assets/apple1.PNG);
+  background-size: cover;
+}
+
+
 
 .cells {
   display: flex;
@@ -143,4 +243,3 @@ body {
 .touch-controls button:hover {
   background-color: #08921a;
 }
-.

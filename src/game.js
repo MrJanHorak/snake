@@ -80,13 +80,77 @@ function createBoard() {
 function renderBoard() {
   cells.forEach((cell) => {
     cell.classList.remove('snake');
+    cell.classList.remove('snakeHead');
+    cell.classList.remove('snakeHeadUp');
+    cell.classList.remove('snakeHeadDown');
+    cell.classList.remove('snakeHeadLeft');
+    cell.classList.remove('snakeHeadRight');
+    cell.classList.remove('snakeCornerRightUp');
+    cell.classList.remove('snakeCornerLeftUp');
+    cell.classList.remove('snakeCornerRightDown');
+    cell.classList.remove('snakeCornerLeftDown');
+    cell.classList.remove('snakeUp');
+    cell.classList.remove('snakeDown');
+    cell.classList.remove('snakeLeft');
+    cell.classList.remove('snakeRight');
     cell.classList.remove('food');
   });
-
-  snake.body.forEach((segment) => {
-    const index = segment.x * 20 + segment.y;
-    cells[index].classList.add('snake');
+  console.log(snake);
+  snake.body.forEach((segment, idx) => {
+    if (idx === 0) {
+      if (segment.direction === 'up') {
+        cells[segment.x * 20 + segment.y].classList.add('snakeHeadUp');
+      } else if (segment.direction === 'down') {
+        cells[segment.x * 20 + segment.y].classList.add('snakeHeadDown');
+      } else if (segment.direction === 'left') {
+        cells[segment.x * 20 + segment.y].classList.add('snakeHeadRight');
+      } else if (segment.direction === 'right') {
+        cells[segment.x * 20 + segment.y].classList.add('snakeHeadLeft');
+      }
+    } else {
+      if (segment.direction === 'up') {
+        if (snake.body[idx - 1].direction === 'left') {
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerRightUp');
+        } else if (snake.body[idx - 1].direction === 'right') {
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerLeftUp');
+        } else {
+          cells[segment.x * 20 + segment.y].classList.add('snakeUp');
+        }
+      } else if (segment.direction === 'down') {
+        if (snake.body[idx - 1].direction === 'left') {
+          cells[segment.x * 20 + segment.y].classList.add(
+            'snakeCornerLeftDown'
+          );
+        } else if (snake.body[idx - 1].direction === 'right') {
+          cells[segment.x * 20 + segment.y].classList.add(
+            'snakeCornerRightDown'
+          );
+        } else {
+          cells[segment.x * 20 + segment.y].classList.add('snakeDown');
+        };
+      } else if (segment.direction === 'left') {
+        if (snake.body[idx - 1].direction === 'up') {
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerRightUp');
+        } else if (snake.body[idx - 1].direction === 'down') {
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerRightDown');
+        } else {
+          cells[segment.x * 20 + segment.y].classList.add('snakeLeft');
+        }
+      } else if (segment.direction === 'right') {
+        if (snake.body[idx - 1].direction === 'up') {
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerLeftUp');
+        } else if (snake.body[idx - 1].direction === 'down') {
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerLeftDown');
+        } else {
+        cells[segment.x * 20 + segment.y].classList.add('snakeRight');
+        }
+      }
+    }
   });
+
+  // const index = segment.x * 20 + segment.y;
+  // cells[index].classList.add('snake');
+
   cells[food.x * 20 + food.y].classList.add('food');
 }
 
@@ -119,15 +183,19 @@ function moveSnake() {
   switch (snake.direction) {
     case 'up':
       head.x -= 1;
+      head.direction = 'up';
       break;
     case 'down':
       head.x += 1;
+      head.direction = 'down';
       break;
     case 'left':
       head.y -= 1;
+      head.direction = 'left';
       break;
     case 'right':
       head.y += 1;
+      head.direction = 'right';
       break;
     default:
       break;
@@ -166,7 +234,7 @@ function moveSnake() {
 }
 
 function startGame() {
-  snake.body = [{ x: 10, y: 10 }];
+  snake.body = [{ x: 10, y: 10, direction: 'right' }];
   snake.direction = 'right';
   snake.grow = false;
   snake.speed = 300;
