@@ -20,16 +20,16 @@ replayButton.classList.add('replay-button');
 const touchControls = document.createElement('div');
 touchControls.classList.add('touch-controls');
 const upButton = document.createElement('button');
-upButton.textContent = 'Up';
+upButton.textContent = '\u2191';
 upButton.classList.add('up-button');
 const downButton = document.createElement('button');
-downButton.textContent = 'Down';
+downButton.textContent = '\u2193';
 downButton.classList.add('down-button');
 const leftButton = document.createElement('button');
-leftButton.textContent = 'Left';
+leftButton.textContent = '\u2190';
 leftButton.classList.add('left-button');
 const rightButton = document.createElement('button');
-rightButton.textContent = 'Right';
+rightButton.textContent = '\u2192';
 rightButton.classList.add('right-button');
 
 // score

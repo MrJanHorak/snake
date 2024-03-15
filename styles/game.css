@@ -228,6 +228,7 @@ body {
 .touch-controls button {
   background-color: #4ff76b;
   color: white;
+  font-family: 'Press Start 2P', cursive;;
   border: none;
   padding: 10px 20px;
   text-align: center;
