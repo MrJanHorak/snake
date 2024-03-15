@@ -85,17 +85,16 @@ function renderBoard() {
     cell.classList.remove('snakeHeadDown');
     cell.classList.remove('snakeHeadLeft');
     cell.classList.remove('snakeHeadRight');
-    cell.classList.remove('snakeCornerRightUp');
-    cell.classList.remove('snakeCornerLeftUp');
-    cell.classList.remove('snakeCornerRightDown');
-    cell.classList.remove('snakeCornerLeftDown');
+    cell.classList.remove('snakeCornerUpRight');
+    cell.classList.remove('snakeCornerDownRight');
+    cell.classList.remove('snakeCornerUpLeft');
+    cell.classList.remove('snakeCornerDownLeft');
     cell.classList.remove('snakeUp');
     cell.classList.remove('snakeDown');
     cell.classList.remove('snakeLeft');
     cell.classList.remove('snakeRight');
     cell.classList.remove('food');
   });
-  console.log(snake);
   snake.body.forEach((segment, idx) => {
     if (idx === 0) {
       if (segment.direction === 'up') {
@@ -110,37 +109,37 @@ function renderBoard() {
     } else {
       if (segment.direction === 'up') {
         if (snake.body[idx - 1].direction === 'left') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerRightUp');
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownRight');
         } else if (snake.body[idx - 1].direction === 'right') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerLeftUp');
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownLeft');
         } else {
           cells[segment.x * 20 + segment.y].classList.add('snakeUp');
         }
       } else if (segment.direction === 'down') {
         if (snake.body[idx - 1].direction === 'left') {
           cells[segment.x * 20 + segment.y].classList.add(
-            'snakeCornerLeftDown'
+            'snakeCornerUpRight'
           );
         } else if (snake.body[idx - 1].direction === 'right') {
           cells[segment.x * 20 + segment.y].classList.add(
-            'snakeCornerRightDown'
+            'snakeCornerUpLeft'
           );
         } else {
           cells[segment.x * 20 + segment.y].classList.add('snakeDown');
         };
       } else if (segment.direction === 'left') {
         if (snake.body[idx - 1].direction === 'up') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerRightUp');
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerUpLeft');
         } else if (snake.body[idx - 1].direction === 'down') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerRightDown');
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownLeft');
         } else {
           cells[segment.x * 20 + segment.y].classList.add('snakeLeft');
         }
       } else if (segment.direction === 'right') {
         if (snake.body[idx - 1].direction === 'up') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerLeftUp');
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerUpRight');
         } else if (snake.body[idx - 1].direction === 'down') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerLeftDown');
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownRight');
         } else {
         cells[segment.x * 20 + segment.y].classList.add('snakeRight');
         }
