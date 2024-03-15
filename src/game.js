@@ -281,21 +281,25 @@ replayButton.addEventListener('click', startGame);
 document.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
+    case 'w':
       if (snake.direction !== 'down') {
         snake.direction = 'up';
       }
       break;
     case 'ArrowDown':
+    case 's':
       if (snake.direction !== 'up') {
         snake.direction = 'down';
       }
       break;
     case 'ArrowLeft':
+    case 'a':
       if (snake.direction !== 'right') {
         snake.direction = 'left';
       }
       break;
     case 'ArrowRight':
+    case 'd':
       if (snake.direction !== 'left') {
         snake.direction = 'right';
       }
