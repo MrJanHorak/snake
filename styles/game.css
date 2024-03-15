@@ -212,9 +212,10 @@ body {
   align-items: center;
   position: absolute;
   font-size: 30px;
-  /* margin: 10px; */
   font-weight: bolder;
+  animation: grow-shrink 3.5s infinite;
 }
+
 
 .touch-controls {
   display: flex;
