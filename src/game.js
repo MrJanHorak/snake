@@ -65,7 +65,6 @@ const food = {
 };
 
 // functions
-
 function createBoard() {
   board.innerHTML = '';
   for (let i = 0; i < 400; i++) {
@@ -109,29 +108,31 @@ function renderBoard() {
     } else {
       if (segment.direction === 'up') {
         if (snake.body[idx - 1].direction === 'left') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownRight');
+          cells[segment.x * 20 + segment.y].classList.add(
+            'snakeCornerDownRight'
+          );
         } else if (snake.body[idx - 1].direction === 'right') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownLeft');
+          cells[segment.x * 20 + segment.y].classList.add(
+            'snakeCornerDownLeft'
+          );
         } else {
           cells[segment.x * 20 + segment.y].classList.add('snakeUp');
         }
       } else if (segment.direction === 'down') {
         if (snake.body[idx - 1].direction === 'left') {
-          cells[segment.x * 20 + segment.y].classList.add(
-            'snakeCornerUpRight'
-          );
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerUpRight');
         } else if (snake.body[idx - 1].direction === 'right') {
-          cells[segment.x * 20 + segment.y].classList.add(
-            'snakeCornerUpLeft'
-          );
+          cells[segment.x * 20 + segment.y].classList.add('snakeCornerUpLeft');
         } else {
           cells[segment.x * 20 + segment.y].classList.add('snakeDown');
-        };
+        }
       } else if (segment.direction === 'left') {
         if (snake.body[idx - 1].direction === 'up') {
           cells[segment.x * 20 + segment.y].classList.add('snakeCornerUpLeft');
         } else if (snake.body[idx - 1].direction === 'down') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownLeft');
+          cells[segment.x * 20 + segment.y].classList.add(
+            'snakeCornerDownLeft'
+          );
         } else {
           cells[segment.x * 20 + segment.y].classList.add('snakeLeft');
         }
@@ -139,16 +140,15 @@ function renderBoard() {
         if (snake.body[idx - 1].direction === 'up') {
           cells[segment.x * 20 + segment.y].classList.add('snakeCornerUpRight');
         } else if (snake.body[idx - 1].direction === 'down') {
-          cells[segment.x * 20 + segment.y].classList.add('snakeCornerDownRight');
+          cells[segment.x * 20 + segment.y].classList.add(
+            'snakeCornerDownRight'
+          );
         } else {
-        cells[segment.x * 20 + segment.y].classList.add('snakeRight');
+          cells[segment.x * 20 + segment.y].classList.add('snakeRight');
         }
       }
     }
   });
-
-  // const index = segment.x * 20 + segment.y;
-  // cells[index].classList.add('snake');
 
   cells[food.x * 20 + food.y].classList.add('food');
 }
@@ -207,11 +207,11 @@ function moveSnake() {
       highScore = score;
     }
     updateScore();
-    if (score % 100 === 0) {
+    if (score % 50 === 0) {
       level += 1;
       updateLevel();
       clearInterval(snake.interval);
-      snake.speed -= 20;
+      snake.speed -= 30;
       snake.interval = setInterval(moveSnake, snake.speed);
     }
     createFood();
@@ -233,7 +233,12 @@ function moveSnake() {
 }
 
 function startGame() {
-  snake.body = [{ x: 10, y: 10, direction: 'right' }];
+  score = 0;
+  level = 1;
+  snake.body = [
+    { x: 10, y: 10, direction: 'right' },
+    { x: 10, y: 9, direction: 'right' },
+  ];
   snake.direction = 'right';
   snake.grow = false;
   snake.speed = 300;
@@ -266,6 +271,9 @@ touchControls.appendChild(upButton);
 touchControls.appendChild(downButton);
 touchControls.appendChild(rightButton);
 body.appendChild(touchControls);
+
+updateLevel();
+updateScore();
 
 startButton.addEventListener('click', startGame);
 replayButton.addEventListener('click', startGame);
