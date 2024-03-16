@@ -7,9 +7,11 @@ body {
   margin: 0;
   background-color: #104f18;
   color: white;
-  font-family: "Press Start 2P", system-ui;
+  font-family: 'Press Start 2P', system-ui;
   font-weight: 400;
   font-style: normal;
+  background-image: url(/assets/An_16bit_styled_picture_of_a_snake_slithering_toward_an_apple_for_the__S823473068_St25_G7.5.png);
+  background-size: repeat;
 }
 
 .board {
@@ -69,29 +71,29 @@ body {
   border: 1px solid #030303;
   background-image: url(/assets/snakeBod2.PNG);
   transform: scaleY(-1) scalex(-1);
-} 
+}
 
 .snakeCornerUpLeft {
   border: 1px solid #030303;
   background-image: url(/assets/snakeBod2.PNG);
   transform: scaleY(-1);
-} 
+}
 
 .snakeCornerDownRight {
   border: 1px solid #030303;
   background-image: url(/assets/snakeBod2.PNG);
   transform: scalex(-1);
-} 
+}
 
 .snakeCornerDownLeft {
   border: 1px solid #030303;
   background-image: url(/assets/snakeBod2.PNG);
-} 
+}
 
 .snakeHeadLeft {
   border: 1px solid #030303;
   background-image: url(/assets/snakeHead1.PNG);
-  transform:scalex(-1)
+  transform: scalex(-1);
 }
 
 .snakeHeadRight {
@@ -131,7 +133,8 @@ body {
 }
 
 @keyframes grow-shrink {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1); /* Start and end at normal size */
   }
   50% {
@@ -144,7 +147,7 @@ body {
   flex-wrap: wrap;
   width: 20px;
   height: 20px;
-  border: 1px solid #c73c23;;
+  border: 1px solid #c73c23;
 }
 
 .button-container {
@@ -156,7 +159,8 @@ body {
   margin: 10px;
 }
 
-.start-button, .replay-button {
+.start-button,
+.replay-button {
   font-family: 'Press Start 2P', cursive;
   background-color: #4ff76b;
   color: white;
@@ -169,8 +173,8 @@ body {
   margin: 4px 2px;
   cursor: pointer;
   width: 150px;
-  box-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-  border-radius: 0; 
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 0;
 }
 
 .start-button {
@@ -188,17 +192,19 @@ body {
   background-color: #a02f1b;
 }
 
-.start-button:active, .replay-button:active {
+.start-button:active,
+.replay-button:active {
   transform: translateY(4px);
-  box-shadow: 0px 0px 1px rgba(0,0,0,0.5);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
 .score-container {
   display: flex;
   justify-content: space-around;
   line-height: 18px;
-  height: 35px;
+  height: 48px;
   width: 355px;
+  background-color: rgba(65, 159, 81, 0.9);
 }
 
 .score-display {
@@ -216,20 +222,30 @@ body {
   animation: grow-shrink 3.5s infinite;
 }
 
-
 .touch-controls {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
   margin: 15px;
-  height: 35px;
   margin: 10px 0 20px 0;
   width: 350px;
 }
 
+.top-touch-controls {
+  display: flex;
+  justify-content: center;
+  width: 350px;
+}
+
+.bottom-touch-controls {
+  display: flex;
+  justify-content: center;
+  width: 350px;
+}
+
 .touch-controls button {
-  background-color: #4ff76b;
+  background-color: rgba(65, 159, 81, 0.9);
   color: white;
-  font-family: 'Press Start 2P', cursive;;
+  font-family: 'Press Start 2P', cursive;
   border: none;
   padding: 10px 20px;
   text-align: center;
@@ -248,4 +264,17 @@ body {
 
 .touch-controls button:hover {
   background-color: #08921a;
+}
+
+.up-button {
+  border-radius: 5px 5px 0px 0px;
+}
+.left-button {
+  border-radius: 5px 5px 0px 0px;
+  transform: rotate(270deg);
+}
+
+.right-button {
+  border-radius: 5px 5px 0px 0;
+  transform: rotate(90deg);
 }

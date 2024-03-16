@@ -19,18 +19,26 @@ replayButton.classList.add('replay-button');
 //touch screen controls for mobile
 const touchControls = document.createElement('div');
 touchControls.classList.add('touch-controls');
+const topTouchControls = document.createElement('div');
+topTouchControls.classList.add('top-touch-controls');
 const upButton = document.createElement('button');
 upButton.textContent = '\u2191';
 upButton.classList.add('up-button');
+topTouchControls.appendChild(upButton);
+const bottomTouchControls = document.createElement('div');
+bottomTouchControls.classList.add('bottom-touch-controls');
 const downButton = document.createElement('button');
 downButton.textContent = '\u2193';
 downButton.classList.add('down-button');
 const leftButton = document.createElement('button');
-leftButton.textContent = '\u2190';
+leftButton.textContent = '\u2191';
 leftButton.classList.add('left-button');
 const rightButton = document.createElement('button');
-rightButton.textContent = '\u2192';
+rightButton.textContent = '\u2191';
 rightButton.classList.add('right-button');
+bottomTouchControls.appendChild(leftButton);
+bottomTouchControls.appendChild(downButton);
+bottomTouchControls.appendChild(rightButton);
 
 // score
 const scoreContainer = document.createElement('div');
@@ -266,10 +274,8 @@ body.appendChild(board);
 body.appendChild(buttonContainer);
 buttonContainer.appendChild(startButton);
 buttonContainer.appendChild(replayButton);
-touchControls.appendChild(leftButton);
-touchControls.appendChild(upButton);
-touchControls.appendChild(downButton);
-touchControls.appendChild(rightButton);
+touchControls.appendChild(topTouchControls);
+touchControls.appendChild(bottomTouchControls);
 body.appendChild(touchControls);
 
 updateLevel();
