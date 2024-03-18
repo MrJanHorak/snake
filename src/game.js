@@ -58,6 +58,11 @@ let level = 1;
 let highScore = localStorage.getItem('highScore') || 0;
 let score = 0;
 let cells;
+const hissSound = new Audio('/assets/sounds/snake-hissing-6092.mp3');
+hissSound.playbackRate = 2.0;
+const eatSound = new Audio('/assets/sounds/apple-munch-40169.mp3');
+const gameOverSound = new Audio('/assets/sounds/hiss3-103123.mp3');
+const gameOverSound2 = new Audio('/assets/sounds/083822_8-bit-quotgame-overquot-82872.mp3');
 
 const snake = {
   body: [],
@@ -209,6 +214,7 @@ function moveSnake() {
   }
   snake.body.unshift(head);
   if (head.x === food.x && head.y === food.y) {
+    eatSound.play();
     snake.grow = true;
     score += 10;
     if (score > highScore) {
@@ -230,13 +236,18 @@ function moveSnake() {
     snake.grow = false;
   }
   if (head.x < 0 || head.x >= 20 || head.y < 0 || head.y >= 20) {
+    gameOverSound.play();
+    gameOverSound2.play();
     gameOver();
   }
   for (let i = 1; i < snake.body.length; i++) {
     if (head.x === snake.body[i].x && head.y === snake.body[i].y) {
+      gameOverSound.play();
+      gameOverSound2.play();
       gameOver();
     }
   }
+  hissSound.play();
   renderBoard();
 }
 
