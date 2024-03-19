@@ -296,6 +296,10 @@ body {
     height: 31px;
   }
 
+  .touch-controls {
+    display: flex;
+  }
+
   .score-container,
   .touch-controls,
   .top-touch-controls,
@@ -331,6 +335,10 @@ body {
   .food {
     width: 31px;
     height: 31px;
+  }
+
+  .touch-controls {
+    display: flex;
   }
 
   .score-container,
