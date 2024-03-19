@@ -13,6 +13,13 @@ You can play the game [here](theserpantshome.surge.sh).
 
 ## Screenshots
 
+<p align="center">
+<img src="https://i.imgur.com/Jo9anGYm.png" alt='title screen'>
+<img src="https://i.imgur.com/gZwzZAMm.png" alt='game screen desktop view'>
+<img src="https://i.imgur.com/U41e2vnm.png" alt='game screen in play mobile view'>
+<img src="https://i.imgur.com/YcnOq5Bm.png" alt='game screen in mobile view'>
+
+</p>
 
 ## Technologies Used
 
