@@ -5,6 +5,7 @@ Welcome to our Snake game! This is a classic game where the player maneuvers a l
 I developed this version of the classic snake game while a group of students in the bootcamp I work at were going through unit 1 and had to create a VanillaJS, HTML, CSS based browser game as a final Unit project. I always enjoy seeing the creativity of students that it inspires me to try a new game as well. This time around I wanted to create a game I was hooked on since I spent hours on it on my Nokia 5110.
 
 ## How to Play
+
 Use the arrow keys, the WASD keys or the buttons on the screen to move the snake. Eat the apples as they fall off the tree to grow and score points. Avoid running into the walls or yourself. The game levels up and thus speeds up every 50 points. Good luck!
 
 ## Live Demo
@@ -16,9 +17,11 @@ You can play the game [here](theserpantshome.surge.sh).
 <p align="center">
 <img src="https://i.imgur.com/Jo9anGYm.png" alt='title screen'>
 <img src="https://i.imgur.com/gZwzZAMm.png" alt='game screen desktop view'>
+</p>
+
+<p align="center">
 <img src="https://i.imgur.com/U41e2vnm.png" alt='game screen in play mobile view'>
 <img src="https://i.imgur.com/YcnOq5Bm.png" alt='game screen in mobile view'>
-
 </p>
 
 ## Technologies Used
@@ -58,6 +61,6 @@ switch (event.key) {
 }
 ```
 
-
 ### Credits
+
 Images used were all created with Google Gemini. Sound effects from Pixabay.
