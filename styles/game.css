@@ -19,49 +19,53 @@ body {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  width: 350px;
+  width: 750px;
   border: #10c027 2px solid;
   margin: 15px;
   position: relative;
 }
 
-.cell {
-  width: 16px;
-  height: 16px;
+.cell, 
+.snakeLeft,
+.snakeRight,
+.snakeUp,
+.snakeDown,
+.snakeCornerUpRight,
+.snakeCornerUpLeft,
+.snakeCornerDownRight,
+.snakeCornerDownLeft,
+.snakeHeadLeft,
+.snakeHeadRight,
+.snakeHeadUp,
+.snakeHeadDown,
+.food {
+  width: 36px;
+  height: 36px;
   border: 1px solid #030303;
+}
+
+.cell {
   background-image: url(/assets/grid1.PNG);
   background-size: cover;
 }
 
 .snakeLeft {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeBod1.PNG);
   background-size: cover;
 }
 
 .snakeRight {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeBod1.PNG);
   background-size: cover;
 }
 
 .snakeUp {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeBod1.PNG);
   background-size: cover;
   transform: rotate(90deg);
 }
 
 .snakeDown {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeBod1.PNG);
   background-size: cover;
   transform: rotate(-90deg);
@@ -97,36 +101,24 @@ body {
 }
 
 .snakeHeadRight {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeHead1.PNG);
   background-size: cover;
   /* transform: scalex(-1); */
 }
 
 .snakeHeadUp {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeHead1.PNG);
   background-size: cover;
   transform: rotate(90deg);
 }
 
 .snakeHeadDown {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/snakeHead1.PNG);
   background-size: cover;
   transform: rotate(-90deg);
 }
 
 .food {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #030303;
   background-image: url(/assets/apple1.PNG);
   background-size: cover;
   animation: grow-shrink 1.5s infinite;
@@ -203,7 +195,7 @@ body {
   justify-content: space-around;
   line-height: 18px;
   height: 48px;
-  width: 355px;
+  width: 755px;
   background-color: rgba(65, 159, 81, 0.9);
 }
 
@@ -228,6 +220,7 @@ body {
   margin: 15px;
   margin: 10px 0 20px 0;
   width: 350px;
+  display: none;
 }
 
 .top-touch-controls {
@@ -277,4 +270,199 @@ body {
 .right-button {
   border-radius: 5px 5px 0px 0;
   transform: rotate(90deg);
+}
+
+
+@media screen and (max-width: 1024px) {
+  .board {
+    width: 650px;
+  }
+
+  .cell,
+  .snakeLeft,
+  .snakeRight,
+  .snakeUp,
+  .snakeDown,
+  .snakeCornerUpRight,
+  .snakeCornerUpLeft,
+  .snakeCornerDownRight,
+  .snakeCornerDownLeft,
+  .snakeHeadLeft,
+  .snakeHeadRight,
+  .snakeHeadUp,
+  .snakeHeadDown,
+  .food {
+    width: 31px;
+    height: 31px;
+  }
+
+  .score-container,
+  .touch-controls,
+  .top-touch-controls,
+  .bottom-touch-controls {
+    width: 670px;
+  }
+
+  .touch-controls button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+@media screen and (max-width: 820px) {
+  .board {
+    width: 650px;
+  }
+
+  .cell,
+  .snakeLeft,
+  .snakeRight,
+  .snakeUp,
+  .snakeDown,
+  .snakeCornerUpRight,
+  .snakeCornerUpLeft,
+  .snakeCornerDownRight,
+  .snakeCornerDownLeft,
+  .snakeHeadLeft,
+  .snakeHeadRight,
+  .snakeHeadUp,
+  .snakeHeadDown,
+  .food {
+    width: 31px;
+    height: 31px;
+  }
+
+  .score-container,
+  .touch-controls,
+  .top-touch-controls,
+  .bottom-touch-controls {
+    width: 670px;
+  }
+
+  .touch-controls button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .board {
+    width: 500px;
+  }
+
+  .cell,
+  .snakeLeft,
+  .snakeRight,
+  .snakeUp,
+  .snakeDown,
+  .snakeCornerUpRight,
+  .snakeCornerUpLeft,
+  .snakeCornerDownRight,
+  .snakeCornerDownLeft,
+  .snakeHeadLeft,
+  .snakeHeadRight,
+  .snakeHeadUp,
+  .snakeHeadDown,
+  .food {
+    width: 23px;
+    height: 23px;
+  }
+
+  .button-container {
+    margin: 3px;
+  }
+  .start-button,
+  .replay-button {
+    width: 150px;
+  }
+  .score-container,
+  .touch-controls,
+  .top-touch-controls,
+  .bottom-touch-controls {
+    width: 500px;
+  }
+
+  .touch-controls button {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .board {
+    width: 350px;
+  }
+
+  .cell,
+  .snakeLeft,
+  .snakeRight,
+  .snakeUp,
+  .snakeDown,
+  .snakeCornerUpRight,
+  .snakeCornerUpLeft,
+  .snakeCornerDownRight,
+  .snakeCornerDownLeft,
+  .snakeHeadLeft,
+  .snakeHeadRight,
+  .snakeHeadUp,
+  .snakeHeadDown,
+  .food {
+    width: 16px;
+    height: 16px;
+  }
+
+  .score-container,
+  .touch-controls,
+  .top-touch-controls,
+  .bottom-touch-controls {
+    width: 370px;
+  }
+
+  .touch-controls button {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media screen and (max-width: 280px) {
+  .board {
+    width: 280px;
+  }
+
+  .cell,
+  .snakeLeft,
+  .snakeRight,
+  .snakeUp,
+  .snakeDown,
+  .snakeCornerUpRight,
+  .snakeCornerUpLeft,
+  .snakeCornerDownRight,
+  .snakeCornerDownLeft,
+  .snakeHeadLeft,
+  .snakeHeadRight,
+  .snakeHeadUp,
+  .snakeHeadDown,
+  .food {
+    width: 13.5px;
+    height: 13.5px;
+  }
+
+  .start-button,
+  .replay-button {
+    width: 125px;
+  }
+
+  .score-container,
+  .touch-controls,
+  .top-touch-controls,
+  .bottom-touch-controls {
+    width: 270px;
+  }
+
+  .touch-controls button {
+    width: 50px;
+    height: 50px;
+  }
 }
