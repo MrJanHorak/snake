@@ -10,7 +10,7 @@ Use the arrow keys, the WASD keys or the buttons on the screen to move the snake
 
 ## Live Demo
 
-You can play the game all: [here](theserpantshome.surge.sh).
+You can play the game here: [here](theserpantshome.surge.sh).
 
 ## Screenshots
 
